@@ -2,10 +2,12 @@ import createResultElement from './createResultElement.js'
 
 export default class ItemContainer {
   #inputElement
+  #onRender
   #container
 
-  constructor(inputElement) {
+  constructor(inputElement, onRender) {
     this.#inputElement = inputElement
+    this.#onRender = onRender
     this.#container = document.createElement('ul')
     this.#container.setAttribute('popover', 'auto')
     this.#container.classList.add('autocomplete')
@@ -22,7 +24,7 @@ export default class ItemContainer {
   set items(items) {
     if (items.length > 0) {
       this.#container.innerHTML = ''
-      const elements = items.map(createResultElement)
+      const elements = items.map((item, i) => createResultElement(item, i, this.#onRender))
       this.#container.append(...elements)
       this.#moveUnderInputElement()
       this.#container.showPopover()
