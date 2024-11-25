@@ -29,7 +29,7 @@ export default class Autocomplete {
 
   #setEventHandlersToItemsContainer(element) {
     this.#delegate(element, 'mousedown', 'li', ({ delegateTarget }) => {
-      this.#onSelect(delegateTarget.textContent)
+      this.#onSelect(delegateTarget)
       element.hidePopover()
     })
 
@@ -86,7 +86,7 @@ export default class Autocomplete {
       const currentItem = document.querySelector('.autocomplete-item-highlighted')
 
       if (currentItem) {
-        this.#onSelect(currentItem.textContent)
+        this.#onSelect(currentItem)
       }
 
       this.#model.clearItems()
