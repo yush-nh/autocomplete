@@ -6,7 +6,13 @@ export default class Autocomplete {
   #itemContainer
   #model
 
-  constructor(inputElement, onSearch, onSelect, onRender = (item) => item, minLength = 3) {
+  constructor({
+    inputElement,
+    onSearch,
+    onSelect,
+    onRender = (item) => item,
+    minLength = 3
+  }) {
     this.#onSelect = onSelect
     this.#itemContainer = new ItemContainer(inputElement, onRender)
 
