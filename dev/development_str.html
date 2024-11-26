@@ -7,6 +7,7 @@
 </head>
 <body>
   <input class="autocomplete-input">
+  <input>
 
   <script type="module">
     import Autocomplete from '/src/index.js'
@@ -20,7 +21,7 @@
         const results = items.filter((item) => item.includes(term))
         onResult(results)
       },
-      (value) => inputElement.value = value
+      (target) => inputElement.value = target.dataset.value
     )
   </script>
 </body>
