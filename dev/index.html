@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autocomplete</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <input class="autocomplete-input">
+
+  <script type="module">
+    import Autocomplete from '/src/index.js'
+
+    const items = ['suggest11', 'suggest12', 'suggest21', 'suggest22']
+    const inputElement = document.querySelector('.autocomplete-input')
+
+    new Autocomplete(
+      inputElement,
+      (term, onResult) => {
+        const results = items.filter((item) => item.includes(term))
+        onResult(results)
+      },
+      (value) => inputElement.value = value
+    )
+  </script>
+</body>
+</html>
