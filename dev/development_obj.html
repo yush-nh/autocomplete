@@ -27,9 +27,9 @@
         ]
         onResult(results)
       },
-      (target) => {
-        inputElement.value = target.dataset.id
-        anotherInputElement.value = target.dataset.label
+      (result) => {
+        inputElement.value = result.id
+        anotherInputElement.value = result.label
       },
       (item) => `${item.id} ${item.label}`
     )

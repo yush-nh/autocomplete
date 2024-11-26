@@ -21,7 +21,7 @@
         const results = items.filter((item) => item.includes(term))
         onResult(results)
       },
-      (target) => inputElement.value = target.dataset.value
+      (result) => inputElement.value = result.value
     )
   </script>
 </body>
