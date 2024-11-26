@@ -6,9 +6,9 @@ export default class Autocomplete {
   #itemContainer
   #model
 
-  constructor(inputElement, onSearch, onSelect, minLength = 3) {
+  constructor(inputElement, onSearch, onSelect, onRender = (item) => item, minLength = 3) {
     this.#onSelect = onSelect
-    this.#itemContainer = new ItemContainer(inputElement)
+    this.#itemContainer = new ItemContainer(inputElement, onRender)
 
     this.#model = new AutocompleteModel(
       (term) => onSearch(term, (results) => (this.#model.items = results)),
@@ -29,7 +29,7 @@ export default class Autocomplete {
 
   #setEventHandlersToItemsContainer(element) {
     this.#delegate(element, 'mousedown', 'li', ({ delegateTarget }) => {
-      this.#onSelect(delegateTarget.textContent)
+      this.#onSelect(delegateTarget.dataset)
       element.hidePopover()
     })
 
@@ -86,7 +86,7 @@ export default class Autocomplete {
       const currentItem = document.querySelector('.autocomplete-item-highlighted')
 
       if (currentItem) {
-        this.#onSelect(currentItem.textContent)
+        this.#onSelect(currentItem.dataset)
       }
 
       this.#model.clearItems()
