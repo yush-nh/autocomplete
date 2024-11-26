@@ -43,7 +43,7 @@ new Autocomplete({
 The input element to attach the autocomplete functionality to.
 example:
 ```js
-document.querySelector('.autocomplete-input')
+inputElement: document.querySelector('.autocomplete-input')
 ```
 ## onSearch (required)
  Callback function for searching. Accepts `term` and `onResult` as arguments. Uses `term` to search and calls `onResult` with the results.   
@@ -52,7 +52,7 @@ document.querySelector('.autocomplete-input')
 
 example:
 ```js
-(term, onResult) => {
+onSearch: (term, onResult) => {
   const results = items.filter((item) => item.includes(term))
   onResult(results)
 }
@@ -62,7 +62,7 @@ Callback function executed when an item is selected.
 
 example:
 ```js
-(result) => inputElement.value = result.value
+onSelect: (result) => inputElement.value = result.value
 ```
 result is a dataset property.  
 If you used an array of strings as data, the result can be retrieved from value.  
@@ -72,8 +72,13 @@ Function to customize rendering of each item.
 
 example:
 ```js
-(item) => `result: ${item.value}`
+onRender: (item) => `result: ${item.value}`
 ```
 defaults to render only search result.
 ## minLength (optional)
 Minimum number of characters required to start the search. Defaults to 3.
+
+example:
+```js
+minLength: 4
+```
