@@ -1,5 +1,6 @@
 import ItemContainer from "./itemContainer.js"
 import AutocompleteModel from "./autocompleteModel.js"
+import debounce from "debounce"
 
 export default class Autocomplete {
   #onSelect
@@ -28,7 +29,11 @@ export default class Autocomplete {
   }
 
   #setEventHandlersToInput(element) {
-    element.addEventListener('input', ({ target }) => this.#model.term = target.value)
+    const handleInput = debounce((term) => {
+      this.#model.term = term
+    }, 300)
+
+    element.addEventListener('input', ({ target }) => handleInput(target.value))
     element.addEventListener('keydown', (event) => this.#handleKeydown(event))
     element.addEventListener('keyup', (event) => this.#handleKeyup(event))
   }
