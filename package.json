@@ -2,12 +2,14 @@
   "name": "@ysh-nh/autocomplete",
   "version": "1.0.0",
   "description": "An autocomplete library supporting top-layer display using the Popover API.",
-  "main": "src/index.js",
+  "main": "dist/autocomplete.js",
+  "type": "module",
   "files": [
-    "src/"
+    "dist/"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,10 @@
     "javascript"
   ],
   "author": "ysh-nh",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.1",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "rollup": "^4.27.4"
+  }
 }
