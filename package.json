@@ -25,5 +25,8 @@
     "javascript"
   ],
   "author": "ysh-nh",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "debounce": "^2.2.0"
+  }
 }
