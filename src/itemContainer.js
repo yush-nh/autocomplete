@@ -4,17 +4,20 @@ export default class ItemContainer {
   #inputElement
   #onRender
   #container
+  #resizeObserver
 
   constructor(inputElement, onRender) {
     this.#inputElement = inputElement
     this.#onRender = onRender
     this.#container = document.createElement('ul')
-    this.#container.setAttribute('popover', 'auto')
+    this.#container.setAttribute('popover', 'manual')
     this.#container.classList.add('autocomplete')
     this.#container.style.margin = 0 // Clear popover default style.
     inputElement.parentElement.appendChild(this.#container)
 
     window.addEventListener('resize', this.#moveUnderInputElement.bind(this))
+    this.#resizeObserver = new ResizeObserver(this.#moveUnderInputElement.bind(this))
+    this.#resizeObserver.observe(inputElement.parentElement)
   }
 
   get element() {

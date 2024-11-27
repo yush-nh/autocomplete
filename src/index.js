@@ -36,6 +36,7 @@ export default class Autocomplete {
     element.addEventListener('input', ({ target }) => handleInput(target.value))
     element.addEventListener('keydown', (event) => this.#handleKeydown(event))
     element.addEventListener('keyup', (event) => this.#handleKeyup(event))
+    element.addEventListener('blur', () => this.#model.clearItems())
   }
 
   #setEventHandlersToItemsContainer(element) {
