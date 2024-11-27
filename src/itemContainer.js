@@ -10,7 +10,7 @@ export default class ItemContainer {
     this.#inputElement = inputElement
     this.#onRender = onRender
     this.#container = document.createElement('ul')
-    this.#container.setAttribute('popover', 'auto')
+    this.#container.setAttribute('popover', 'manual')
     this.#container.classList.add('autocomplete')
     this.#container.style.margin = 0 // Clear popover default style.
     inputElement.parentElement.appendChild(this.#container)
