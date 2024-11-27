@@ -4,6 +4,7 @@ export default class ItemContainer {
   #inputElement
   #onRender
   #container
+  #resizeObserver
 
   constructor(inputElement, onRender) {
     this.#inputElement = inputElement
@@ -15,6 +16,8 @@ export default class ItemContainer {
     inputElement.parentElement.appendChild(this.#container)
 
     window.addEventListener('resize', this.#moveUnderInputElement.bind(this))
+    this.#resizeObserver = new ResizeObserver(this.#moveUnderInputElement.bind(this))
+    this.#resizeObserver.observe(inputElement.parentElement)
   }
 
   get element() {
