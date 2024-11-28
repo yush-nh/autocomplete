@@ -26,7 +26,7 @@ export default class Autocomplete {
 
     this.#setEventHandlersToInput(inputElement)
     this.#setEventHandlersToItemsContainer(this.#itemContainer.element)
-    this.#setItemContainerHideHandlers()
+    this.#setEventHandlersToHideItemContainer()
   }
 
   #setEventHandlersToInput(element) {
@@ -54,7 +54,7 @@ export default class Autocomplete {
     })
   }
 
-  #setItemContainerHideHandlers() {
+  #setEventHandlersToHideItemContainer() {
     // Initially intended that itemContainer follows the resizing of the parent element,
     // but it could not handle recurrent parent element resizing.
     // As a workaround, the itemContainer is hidden when interacting outside it or when the window is resized.
