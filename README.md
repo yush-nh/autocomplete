@@ -82,3 +82,18 @@ example:
 ```js
 minLength: 4
 ```
+
+# Run Tests
+This project uses Playwright for testing. Follow the steps below to execute the tests.
+
+## 1. Start the server
+Before running the tests, need to start the local server.
+```
+npm run server
+```
+
+## 2. Run the tests
+Once the server is running, you can execute the tests with the following command:
+```
+npm run test
+```

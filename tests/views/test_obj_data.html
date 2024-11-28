@@ -14,12 +14,8 @@
   </script>
 </head>
 <body>
-  <div class="main-container">
-    <div class="sub-container">
-      <input class="autocomplete-input">
-      <input class="label">
-    </div>
-  </div>
+  <input class="autocomplete-input">
+  <input class="another-input">
 
   <script type="module">
     import Autocomplete from '/src/index.js'
@@ -31,7 +27,7 @@
           { id: 4, label: "suggest22" }
         ]
     const inputElement = document.querySelector('.autocomplete-input')
-    const anotherInputElement = document.querySelector('.label')
+    const anotherInputElement = document.querySelector('.another-input')
 
     new Autocomplete({
       inputElement: inputElement,
@@ -40,6 +36,7 @@
         onResult(results)
       },
       onSelect: (result) => {
+        console.log(result.label)
         inputElement.value = result.id
         anotherInputElement.value = result.label
       },
