@@ -1,4 +1,22 @@
+.main-container {
+  width: 800px;
+  height: 600px;
+  border: 1px solid #ccc;
+  resize: both;
+  overflow: auto;
+}
+
+.sub-container {
+  width: 600px;
+  height: 400px;
+  border: 1px solid #ccc;
+  resize: both;
+  overflow: auto;
+  margin: auto;
+}
+
 input {
+  width: 100%;
   display: block;
   margin: auto;
   width: 300px;

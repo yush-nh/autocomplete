@@ -26,6 +26,7 @@ export default class Autocomplete {
 
     this.#setEventHandlersToInput(inputElement)
     this.#setEventHandlersToItemsContainer(this.#itemContainer.element)
+    this.#setEventHandlersToHideItemContainer()
   }
 
   #setEventHandlersToInput(element) {
@@ -51,6 +52,20 @@ export default class Autocomplete {
     this.#delegate(element, 'mouseout', 'li', () => {
       this.#model.clearHighlight()
     })
+  }
+
+  #setEventHandlersToHideItemContainer() {
+    // Initially intended that itemContainer follows the resizing of the parent element,
+    // but it could not handle recurrent parent element resizing.
+    // As a workaround, the itemContainer is hidden when interacting outside it or when the window is resized.
+
+    document.addEventListener('mousedown', ({ target }) => {
+      if (!this.#itemContainer.element.contains(target)) {
+        this.#model.clearItems()
+      }
+    })
+
+    window.addEventListener('resize', () => this.#model.clearItems())
   }
 
   #delegate(element, event, selector, callback) {
