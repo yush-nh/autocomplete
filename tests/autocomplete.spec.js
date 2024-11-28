@@ -96,3 +96,95 @@ test.describe('basic operation', () => {
     })
   })
 })
+
+test.describe('keyboard operation', () => {
+  test.describe('when ArrowDown key pressed', () => {
+    test('it highlight one suggestion below', async ({ page }) => {
+      const input = page.locator('.autocomplete-input')
+      await input.fill('sug')
+
+      const firstSuggestion = page.locator('.autocomplete li').first()
+      await expect(firstSuggestion).not.toHaveClass(/autocomplete-item-highlighted/)
+
+      await input.focus()
+      await page.keyboard.press('ArrowDown')
+
+      await expect(firstSuggestion).toHaveClass(/autocomplete-item-highlighted/)
+    })
+  })
+
+  test.describe('when ArrowUp key pressed', () => {
+    test('it highlight one suggestion above', async ({ page }) => {
+      const input = page.locator('.autocomplete-input')
+      await input.fill('sug')
+
+      const lastSuggestion = page.locator('.autocomplete li').last()
+      await expect(lastSuggestion).not.toHaveClass(/autocomplete-item-highlighted/)
+
+      await input.focus()
+      await page.keyboard.press('ArrowUp')
+      await expect(lastSuggestion).toHaveClass(/autocomplete-item-highlighted/)
+    })
+  })
+
+  test.describe('when Tab key pressed', () => {
+    test('it highlight one suggestion below', async ({ page }) => {
+      const input = page.locator('.autocomplete-input')
+      await input.fill('sug')
+
+      const firstSuggestion = page.locator('.autocomplete li').first()
+      await expect(firstSuggestion).not.toHaveClass(/autocomplete-item-highlighted/)
+
+      await input.focus()
+      await page.keyboard.press('Tab')
+      await expect(firstSuggestion).toHaveClass(/autocomplete-item-highlighted/)
+    })
+  })
+
+  test.describe('when Shift+Tab key pressed', () => {
+    test('it highlight one suggestion above', async ({ page }) => {
+      const input = page.locator('.autocomplete-input')
+      await input.fill('sug')
+
+      const lastSuggestion = page.locator('.autocomplete li').last()
+      await expect(lastSuggestion).not.toHaveClass(/autocomplete-item-highlighted/)
+
+      await input.focus()
+      await page.keyboard.down('Shift')
+      await page.keyboard.press('Tab')
+      await expect(lastSuggestion).toHaveClass(/autocomplete-item-highlighted/)
+    })
+  })
+
+  test.describe('when Enter key pressed while a suggestion highlighted', () => {
+    test('it should applied in the input', async ({ page }) => {
+      const input = page.locator('.autocomplete-input')
+      await input.fill('sug')
+
+      const firstSuggestion = page.locator('.autocomplete li').first()
+      await expect(firstSuggestion).not.toHaveClass(/autocomplete-item-highlighted/)
+
+      await input.focus()
+      await page.keyboard.press('ArrowDown')
+      await expect(firstSuggestion).toHaveClass(/autocomplete-item-highlighted/)
+
+      const suggestionText = await firstSuggestion.textContent()
+      await expect(suggestionText).toBe('suggest11')
+      await page.keyboard.press('Enter')
+      await expect(input).toHaveValue('suggest11')
+    })
+  })
+
+  test.describe('when Escape key pressed', () => {
+    test('it should hide suggestions', async ({ page }) => {
+      const input = page.locator('.autocomplete-input')
+      await input.fill('sug')
+
+      const suggestionList = page.locator('.autocomplete')
+      await expect(suggestionList).toBeVisible()
+
+      await page.keyboard.press('Escape')
+      await expect(suggestionList).toBeHidden()
+    })
+  })
+})
