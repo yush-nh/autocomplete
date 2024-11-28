@@ -188,3 +188,45 @@ test.describe('keyboard operation', () => {
     })
   })
 })
+
+test.describe('options', () => {
+  test.describe('minLength', () => {
+    test.describe('when not specifying minLength and input is less than 3 characters', () => {
+      test('it should not display suggestions', async ({ page }) => {
+        const input = page.locator('.autocomplete-input')
+        await input.fill('su')
+
+        const suggestions = page.locator('.autocomplete li')
+        await expect(suggestions).toHaveCount(0)
+      })
+    })
+
+    test.describe('when specifying minLength and input is less than minLength', () => {
+      test('it should not display suggestions', async ({ page }) => {
+        await page.goto('http://localhost:8080/tests/views/test_option.html')
+
+        const input = page.locator('.autocomplete-input')
+        await input.fill('sug')
+
+        const suggestions = page.locator('.autocomplete li')
+        await expect(suggestions).toHaveCount(0)
+      })
+    })
+  })
+
+  test.describe('onRender', () => {
+    test.describe('when specifying onRender', () => {
+      test('it should display with specified format', async ({ page }) => {
+        await page.goto('http://localhost:8080/tests/views/test_option.html')
+
+        const input = page.locator('.autocomplete-input')
+        await input.fill('sugg')
+
+        const firstSuggestion = page.locator('.autocomplete li').first()
+        const suggestionText = await firstSuggestion.textContent()
+
+        await expect(suggestionText).toBe('result: suggest11')
+      })
+    })
+  })
+})
