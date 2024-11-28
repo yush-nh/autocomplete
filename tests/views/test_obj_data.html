@@ -1,0 +1,47 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autocomplete</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "debounce": "https://cdn.jsdelivr.net/npm/debounce@2.2.0/+esm"
+      }
+    }
+  </script>
+</head>
+<body>
+  <input class="autocomplete-input">
+  <input class="another-input">
+
+  <script type="module">
+    import Autocomplete from '/src/index.js'
+
+    const items = [
+          { id: 1, label: "suggest11" },
+          { id: 2, label: "suggest12" },
+          { id: 3, label: "suggest21" },
+          { id: 4, label: "suggest22" }
+        ]
+    const inputElement = document.querySelector('.autocomplete-input')
+    const anotherInputElement = document.querySelector('.another-input')
+
+    new Autocomplete({
+      inputElement: inputElement,
+      onSearch: (term, onResult) => {
+        const results = items.filter((item) => item.label.includes(term))
+        onResult(results)
+      },
+      onSelect: (result) => {
+        console.log(result.label)
+        inputElement.value = result.id
+        anotherInputElement.value = result.label
+      },
+      onRender: (item) => `${item.id} ${item.label}`
+    })
+  </script>
+</body>
+</html>
