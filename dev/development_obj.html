@@ -24,19 +24,19 @@
   <script type="module">
     import Autocomplete from '/src/index.js'
 
-    const items = ['suggest11', 'suggest12', 'suggest21', 'suggest22']
+    const items = [
+          { id: 1, label: "suggest11" },
+          { id: 2, label: "suggest12" },
+          { id: 3, label: "suggest21" },
+          { id: 4, label: "suggest22" }
+        ]
     const inputElement = document.querySelector('.autocomplete-input')
     const anotherInputElement = document.querySelector('.label')
 
     new Autocomplete({
       inputElement: inputElement,
       onSearch: (term, onResult) => {
-        const results = [
-          { id: 1, label: "suggest11" },
-          { id: 2, label: "suggest12" },
-          { id: 3, label: "suggest21" },
-          { id: 4, label: "suggest22" }
-        ]
+        const results = items.filter((item) => item.label.includes(term))
         onResult(results)
       },
       onSelect: (result) => {
