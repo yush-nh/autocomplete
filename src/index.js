@@ -65,7 +65,7 @@ export default class Autocomplete {
       }
     })
 
-    window.addEventListener('resize', this.#model.clearItems())
+    window.addEventListener('resize', () => this.#model.clearItems())
   }
 
   #delegate(element, event, selector, callback) {
