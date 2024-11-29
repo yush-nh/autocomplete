@@ -127,5 +127,3 @@ npx vite
 ```
 
 After starting the server, open `http://localhost:5173` in your browser to test and confirm the package works as expected.
-
-If you have not updated source code, `npm pack` and `npm install` steps are not required.
