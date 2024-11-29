@@ -6,9 +6,7 @@ export default defineConfig({
     rollupOptions: {
       input: 'app.js',
       output: {
-        entryFileNames: 'app.js',
-        inlineDynamicImports: true,
-        manualChunks: undefined
+        entryFileNames: 'app.js'
       },
     },
   },
