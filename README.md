@@ -84,16 +84,52 @@ minLength: 4
 ```
 
 # Run Tests
+## E2E test
 This project uses Playwright for testing. Follow the steps below to execute the tests.
 
-## 1. Start the server
+### 1. Start the server
 Before running the tests, need to start the local server.
 ```
 npm run server
 ```
 
-## 2. Run the tests
+### 2. Run the tests
 Once the server is running, you can execute the tests with the following command:
 ```
 npm run test
 ```
+
+## Package test
+This project has an environment that allows you to test the operation of the package through npm.
+
+### 1. Create the package
+Run following command on the root directory.
+```
+npm pack
+```
+This command generates a `.tgz` package file.
+
+### 2. Install package
+Move to the package-test-project directory.
+```
+cd tests/package-test-project
+```
+
+Install package.
+```
+npm install ../../ysh-nh-autocomplete-1.0.0.tgz
+```
+
+### 3. Build
+Compile files for distribution.
+```
+npx vite build
+```
+
+### 3. Start the test server
+On the package-test-project directory, run
+```
+npx vite
+```
+
+After starting the server, open `http://localhost:5173` in your browser to test and confirm the package works as expected.
