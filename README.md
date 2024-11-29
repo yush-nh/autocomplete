@@ -120,6 +120,12 @@ Install package.
 npm install ../../ysh-nh-autocomplete-1.0.0.tgz
 ```
 
+### 3. Build
+Compile files for distribution.
+```
+npx vite build
+```
+
 ### 3. Start the test server
 On the package-test-project directory, run
 ```
