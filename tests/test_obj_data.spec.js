@@ -9,7 +9,7 @@ test.describe('when data is array of objects', () => {
     const input = page.locator('.autocomplete-input')
     await input.fill('sug')
 
-    const suggestion = page.locator('.autocomplete li', { hasText: 'suggest11' })
+    const suggestion = page.locator('.popover-autocomplete-container li', { hasText: 'suggest11' })
     await suggestion.click()
 
     const anotherInput = page.locator('.another-input')

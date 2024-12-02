@@ -109,7 +109,7 @@ export default class Autocomplete {
     if (event.key === 'Enter' && this.#model.hasItems) {
       event.stopPropagation()
 
-      const currentItem = document.querySelector('.autocomplete-item-highlighted')
+      const currentItem = document.querySelector('.popover-autocomplete-item-highlighted')
 
       if (currentItem) {
         this.#onSelect(currentItem.dataset)

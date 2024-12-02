@@ -38,7 +38,7 @@ input {
   box-shadow: 0 0 6px rgba(0, 120, 215, 0.5);
 }
 
-.autocomplete {
+.popover-autocomplete-container {
   position: absolute;
   top: 100%;
   left: 0;
@@ -53,7 +53,7 @@ input {
   list-style: none;
 }
 
-.autocomplete-item {
+.popover-autocomplete-item {
   padding: 10px 15px;
   font-size: 14px;
   font-family: Arial, sans-serif;
@@ -61,6 +61,6 @@ input {
   cursor: pointer;
 }
 
-.autocomplete-item-highlighted {
+.popover-autocomplete-item-highlighted {
   background-color: #f0f0f0;
 }

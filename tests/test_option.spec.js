@@ -9,7 +9,7 @@ test.describe('when specifying minLength and input is less than minLength', () =
     const input = page.locator('.autocomplete-input')
     await input.fill('sug')
 
-    const suggestions = page.locator('.autocomplete li')
+    const suggestions = page.locator('.popover-autocomplete-container li')
     await expect(suggestions).toHaveCount(0)
   })
 })
@@ -19,7 +19,7 @@ test.describe('when specifying onRender', () => {
     const input = page.locator('.autocomplete-input')
     await input.fill('sugg')
 
-    const firstSuggestion = page.locator('.autocomplete li').first()
+    const firstSuggestion = page.locator('.popover-autocomplete-container li').first()
     const suggestionText = await firstSuggestion.textContent()
 
     await expect(suggestionText).toBe('result: suggest11')
