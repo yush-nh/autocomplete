@@ -83,6 +83,17 @@ example:
 minLength: 4
 ```
 
+# Styles
+This library does not provide CSS.  
+However, each generated HTML element has a predefined class attribute. To apply styles, you can specify the following classes in your CSS.
+
+| Class Attribute                  | Description                              |
+|----------------------------------|------------------------------------------|
+| `.autocomplete`                  | The main container for the autocomplete |
+| `.autocomplete-item`             | An individual suggestion item           |
+| `.autocomplete-item-highlighted` | The highlighted suggestion item         |
+
+
 # Run Tests
 ## E2E test
 This project uses Playwright for testing. Follow the steps below to execute the tests.
