@@ -9,7 +9,7 @@ Import autocomplete library to your project
 or
 ```js
 // ES6 modules
-import Autocomplete from '@ysh-nh/autocomplete'
+import Autocomplete from 'popover-autocomplete'
 ```
 Prepare search data.   
 This supports an array of strings or an array of objects.
@@ -128,7 +128,7 @@ cd tests/package-test-project
 
 Install package.
 ```
-npm install ../../ysh-nh-autocomplete-1.0.0.tgz
+npm install ../../popover-autocomplete-[version].tgz
 ```
 
 ### 3. Build
