@@ -1,6 +1,6 @@
 {
   "name": "popover-autocomplete",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An autocomplete library supporting top-layer display using the Popover API.",
   "main": "src/index.js",
   "type": "module",
