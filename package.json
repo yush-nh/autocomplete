@@ -1,5 +1,5 @@
 {
-  "name": "@ysh-nh/autocomplete",
+  "name": "@ysh_nh/autocomplete",
   "version": "1.0.0",
   "description": "An autocomplete library supporting top-layer display using the Popover API.",
   "main": "src/index.js",
