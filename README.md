@@ -9,7 +9,7 @@ Import autocomplete library to your project
 or
 ```js
 // ES6 modules
-import Autocomplete from '@ysh-nh/autocomplete'
+import Autocomplete from 'popover-autocomplete'
 ```
 Prepare search data.   
 This supports an array of strings or an array of objects.
@@ -87,11 +87,11 @@ minLength: 4
 This library does not provide CSS.  
 However, each generated HTML element has a predefined class attribute. To apply styles, you can specify the following classes in your CSS.
 
-| Class Attribute                  | Description                              |
-|----------------------------------|------------------------------------------|
-| `.autocomplete`                  | The main container for the autocomplete |
-| `.autocomplete-item`             | An individual suggestion item           |
-| `.autocomplete-item-highlighted` | The highlighted suggestion item         |
+| Class Attribute                         | Description                             |
+|-----------------------------------------|-----------------------------------------|
+| `popover-autocomplete-container`        | The main container for the autocomplete |
+| `popover-autocomplete-item`             | An individual suggestion item           |
+| `popover-autocomplete-item-highlighted` | The highlighted suggestion item         |
 
 
 # Run Tests
@@ -128,7 +128,7 @@ cd tests/package-test-project
 
 Install package.
 ```
-npm install ../../ysh-nh-autocomplete-1.0.0.tgz
+npm install ../../popover-autocomplete-[version].tgz
 ```
 
 ### 3. Build

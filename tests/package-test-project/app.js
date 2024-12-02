@@ -1,4 +1,4 @@
-import Autocomplete from "@ysh-nh/autocomplete"
+import Autocomplete from "popover-autocomplete"
 
 const items = ['suggest11', 'suggest12', 'suggest21', 'suggest22']
 const inputElement = document.querySelector('.autocomplete-input')

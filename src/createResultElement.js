@@ -1,6 +1,6 @@
 export default function createResultElement(item, i, onRender) {
   const resultElement = document.createElement('li')
-  resultElement.classList.add('autocomplete-item')
+  resultElement.classList.add('popover-autocomplete-item')
 
   if (typeof item === 'object' && item !== null) {
     for (const [key, value] of Object.entries(item)) {

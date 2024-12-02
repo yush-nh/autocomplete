@@ -1,5 +1,5 @@
 {
-  "name": "@ysh_nh/autocomplete",
+  "name": "popover-autocomplete",
   "version": "1.0.0",
   "description": "An autocomplete library supporting top-layer display using the Popover API.",
   "main": "src/index.js",
@@ -13,12 +13,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yush-nh/autocomplete.git"
+    "url": "git+https://github.com/yush-nh/popover-autocomplete.git"
   },
   "bugs": {
-    "url": "https://github.com/yush-nh/autocomplete/issues"
+    "url": "https://github.com/yush-nh/popover-autocomplete/issues"
   },
-  "homepage": "https://github.com/yush-nh/autocomplete/blob/main/README.md",
+  "homepage": "https://github.com/yush-nh/popover-autocomplete/blob/main/README.md",
   "keywords": [
     "autocomplete",
     "popover",

@@ -10,7 +10,7 @@ export default class ItemContainer {
     this.#onRender = onRender
     this.#container = document.createElement('ul')
     this.#container.setAttribute('popover', 'manual')
-    this.#container.classList.add('autocomplete')
+    this.#container.classList.add('popover-autocomplete-container')
     this.#container.style.margin = 0 // Clear popover default style.
     inputElement.parentElement.appendChild(this.#container)
   }
@@ -37,7 +37,7 @@ export default class ItemContainer {
     const target = this.#container.querySelector(`li:nth-child(${index + 1})`)
 
     if (target) {
-      target.classList.add('autocomplete-item-highlighted')
+      target.classList.add('popover-autocomplete-item-highlighted')
     }
   }
 
@@ -52,10 +52,10 @@ export default class ItemContainer {
   }
 
   #unhighlight() {
-    const target = this.#container.querySelector('.autocomplete-item-highlighted')
+    const target = this.#container.querySelector('.popover-autocomplete-item-highlighted')
 
     if (target) {
-      target.classList.remove('autocomplete-item-highlighted')
+      target.classList.remove('popover-autocomplete-item-highlighted')
     }
   }
 }
