@@ -87,11 +87,11 @@ minLength: 4
 This library does not provide CSS.  
 However, each generated HTML element has a predefined class attribute. To apply styles, you can specify the following classes in your CSS.
 
-| Class Attribute                  | Description                              |
-|----------------------------------|------------------------------------------|
-| `.autocomplete`                  | The main container for the autocomplete |
-| `.autocomplete-item`             | An individual suggestion item           |
-| `.autocomplete-item-highlighted` | The highlighted suggestion item         |
+| Class Attribute                         | Description                             |
+|-----------------------------------------|-----------------------------------------|
+| `popover-autocomplete-container`        | The main container for the autocomplete |
+| `popover-autocomplete-item`             | An individual suggestion item           |
+| `popover-autocomplete-item-highlighted` | The highlighted suggestion item         |
 
 
 # Run Tests
